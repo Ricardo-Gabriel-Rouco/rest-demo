@@ -12,28 +12,32 @@ import darkgallow.restdemo.models.CloudVendor;
 
 @RestController
 @RequestMapping("/cloudvendor")
-public class CloudVendorAPIService{
+public class CloudVendorAPIService {
   CloudVendor cloudVendor;
 
+  // localhost:8080/cloudvendor/{vendorId}
   @GetMapping("{vendorId}")
-  public CloudVendor getCLoudVendorDetails(String vendorId){
+  public CloudVendor getCLoudVendorDetails(String vendorId) {
     return cloudVendor;
   }
 
+  // localhost:8080/cloudvendor using a post request with a body in json format
   @PostMapping
-  public String createCloudVendorDetails(@RequestBody CloudVendor cloudVendor){
+  public String createCloudVendorDetails(@RequestBody CloudVendor cloudVendor) {
     this.cloudVendor = cloudVendor;
     return "Cloud vendor created";
   }
 
+  // localhost:8080/cloudvendor using a post request with a body in json format
   @PutMapping
-  public String updateCloudVendorDetails(@RequestBody CloudVendor cloudVendor){
+  public String updateCloudVendorDetails(@RequestBody CloudVendor cloudVendor) {
     this.cloudVendor = cloudVendor;
     return "Cloud vendor updated";
   }
 
+  // localhost:8080/cloudvendor/{vendorId} using a delete request
   @DeleteMapping("{vendorId}")
-  public String deleteCloudVendorDetails(String vendorId){
+  public String deleteCloudVendorDetails(String vendorId) {
     this.cloudVendor = null;
     return "Cloud vendor deleted";
   }
